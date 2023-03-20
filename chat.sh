@@ -1,0 +1,2 @@
+./build_linux/llama -m ./models/30B/ggml-model-q4_0.bin --repeat_last_n 256 --repeat_penalty 1.178 --temp 0.7 --top_k 40 --top_p 0 --color -i -r "User:" -p "$(<prompt.txt)"
+./build/llama.exe -m ./models/30B/ggml-model-q4_0.bin --repeat_last_n 256 --repeat_penalty 1.178 --temp 0.7 --top_k 40 --top_p 0 --color -i -r "User:" -p "$(<prompt.txt)"
