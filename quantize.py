@@ -30,7 +30,7 @@ def main():
         f'"{quantize_script_binary}" script on them.'
     )
     parser.add_argument(
-        'models', nargs='+', choices=('7B', '13B', '30B', '65B'),
+        'models', nargs='+', choices=('7B', '13B', '30B', '65B', '7BLORA'),
         help='The models to quantize.'
     )
     parser.add_argument(
