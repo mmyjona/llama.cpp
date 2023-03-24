@@ -85,7 +85,7 @@ void perplexity(llama_context * ctx, const gpt_params & params) {
     // Download: https://s3.amazonaws.com/research.metamind.io/wikitext/wikitext-2-raw-v1.zip?ref=salesforce-research
     // Run `./main --perplexity -m models/7B/ggml-model-q4_0.bin -f wiki.test.raw`
     // Output: `perplexity: 13.5106 [114/114]`
-    auto tokens = ::llama_tokenize(ctx, params.prompt.c_str(), true);
+    auto tokens = ::llama_tokenize(ctx, params.prompt, true);
 
     int count = 0;
     double nll = 0.0;
@@ -254,6 +254,13 @@ int main(int argc, char ** argv) {
         params.interactive = true;
     }
 
+    if (params.interactive_start) {
+        params.interactive = true;
+    }
+
+    // determine newline token
+    auto llama_token_newline = ::llama_tokenize(ctx, "\n", false);
+
     fprintf(stderr, "\n");
     fprintf(stderr, "%s: prompt: '%s'\n", __func__, params.prompt.c_str());
     fprintf(stderr, "%s: number of tokens in prompt = %zu\n", __func__, embd_inp.size());
@@ -296,7 +303,7 @@ int main(int argc, char ** argv) {
 #endif
                " - Press Return to return control to LLaMa.\n"
                " - If you want to submit another line, end your input in '\\'.\n\n");
-        is_interacting = true;
+        is_interacting = params.interactive_start || params.instruct;
     }
 
     int input_consumed = 0;
@@ -353,6 +360,16 @@ int main(int argc, char ** argv) {
 
                 last_n_tokens.erase(last_n_tokens.begin());
                 last_n_tokens.push_back(id);
+            }
+
+            // replace end of text token with newline token when in interactive mode
+            if (id == llama_token_eos() && params.interactive) {
+                id = llama_token_newline.front();
+                if (params.antiprompt.size() != 0) {
+                    // tokenize and inject first reverse prompt
+                    const auto first_antiprompt = ::llama_tokenize(ctx, params.antiprompt.front(), false);
+                    embd_inp.insert(embd_inp.end(), first_antiprompt.begin(), first_antiprompt.end());
+                }
             }
 
             // add it to the context
@@ -447,12 +464,8 @@ int main(int argc, char ** argv) {
 
         // end of text token
         if (embd.back() == llama_token_eos()) {
-            if (params.interactive) {
-                is_interacting = true;
-            } else {
-                fprintf(stderr, " [end of text]\n");
-                break;
-            }
+            fprintf(stderr, " [end of text]\n");
+            break;
         }
 
         // In interactive mode, respect the maximum number of tokens and drop back to user input when reached.
