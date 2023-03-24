@@ -15,6 +15,7 @@ build-sanitize-addr/
 build-sanitize-thread/
 
 models/*
+models_hf/*
 
 /main
 /quantize
