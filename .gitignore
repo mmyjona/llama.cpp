@@ -5,6 +5,7 @@
 .vscode/
 .DS_Store
 
+.build/
 build/
 build-em/
 build-debug/
@@ -21,9 +22,14 @@ models_hf/*
 /quantize
 /result
 /perplexity
+/embedding
 
 arm_neon.h
 compile_commands.json
 
 .envrc
 .direnv/
+
+.venv
+__pycache__
+.swiftpm
