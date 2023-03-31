@@ -1,0 +1,1 @@
+.\Windows-build\bin\main.exe -m .\models\gpt4all-7B\gpt4all-lora-quantized.bin --color -f .\prompts\alpaca.txt -ins --repeat_last_n 256 --repeat_penalty 1.178 --temp 0.7 --top_k 40 --top_p 0 --color -r "User:" --n_parts 1 -c 2048

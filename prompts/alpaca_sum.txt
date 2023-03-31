@@ -1,1 +1,1 @@
-Summarize text below:
+Please summaraize following text into one sentence, reply [end of text] after completing the summarization.

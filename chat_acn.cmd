@@ -1,0 +1,1 @@
+.\Windows-build\bin\main.exe -m .\models\Alpaca\7BCN\ggml-model-q4_0.bin --color -f .\prompts\alpaca.txt -ins --repeat_last_n 256 --repeat_penalty 1.178 --temp 0.7 -c 2048
