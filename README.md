@@ -37,9 +37,11 @@ Supported platforms:
 
 Supported models:
 
-- [X] LLaMA
+- [X] LLaMA 🦙
 - [X] [Alpaca](https://github.com/ggerganov/llama.cpp#instruction-mode-with-alpaca)
 - [X] [GPT4All](https://github.com/ggerganov/llama.cpp#using-gpt4all)
+- [X] [Chinese LLaMA / Alpaca](https://github.com/ymcui/Chinese-LLaMA-Alpaca)
+- [X] [Vigogne (French)](https://github.com/bofenghuang/vigogne)
 
 ---
 
@@ -153,8 +155,8 @@ python3 -m pip install torch numpy sentencepiece
 # convert the 7B model to ggml FP16 format
 python3 convert-pth-to-ggml.py models/7B/ 1
 
-# quantize the model to 4-bits
-python3 quantize.py 7B
+# quantize the model to 4-bits (using method 2 = q4_0)
+./quantize ./models/7B/ggml-model-f16.bin ./models/7B/ggml-model-q4_0.bin 2
 
 # run the inference
 ./main -m ./models/7B/ggml-model-q4_0.bin -n 128
