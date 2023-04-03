@@ -8,3 +8,4 @@ else
   model="7B"
 fi
 ./build_linux/bin/main -m ./models/Alpaca/$model/ggml-model-q4_0.bin --color -f ./prompts/alpaca_cn.txt -ins -b 256 --top_k 10000 --temp 0.2 --repeat_penalty 1 --keep -1
+./build/bin/main.exe -m ./models/Alpaca/$model/ggml-model-q4_0.bin --color -f ./prompts/alpaca_cn.txt -ins -b 256 --top_k 10000 --temp 0.2 --repeat_penalty 1 --keep -1
