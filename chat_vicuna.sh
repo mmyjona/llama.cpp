@@ -1,0 +1,3 @@
+#!/bin/bash
+./build_linux/bin/main -m ./models/Vicuna/13B/ggml-vicuna-13b-4bit.bin --color -f ./prompts/alpaca_cn.txt -ins -b 256 --top_k 10000 --temp 0.2 --repeat_penalty 1 --keep -1 --reverse-prompt "### Instruction:"
+./build/bin/main.exe -m ./models/Vicuna/13B/ggml-vicuna-13b-4bit.bin --color -f ./prompts/alpaca_cn.txt -ins -b 256 --top_k 10000 --temp 0.2 --repeat_penalty 1 --keep -1 --reverse-prompt "### Instruction:"

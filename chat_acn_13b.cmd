@@ -1,0 +1,1 @@
+.\build-win-msvc\bin\main.exe --verbose-prompt -m .\models\Alpaca\13BCN\ggml-model-q4.bin --color -f .\prompts\alpaca.txt -ins --repeat_last_n 256 --repeat_penalty 1.178 --temp 0.7 -c 2048

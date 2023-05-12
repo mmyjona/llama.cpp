@@ -1,0 +1,1 @@
+.\build-win-msvc\bin\main.exe -m .\models\WizardLM\7BFREE\WizardLM-7B-uncensored.ggml.q5_0.bin --color -f .\prompts\alpaca.txt -ins --repeat_last_n 256 --repeat_penalty 1.178 --temp 0.7 -c 2048 --reverse-prompt "### Response:"

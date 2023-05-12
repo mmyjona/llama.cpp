@@ -1,0 +1,1 @@
+.\build-win-msvc\bin\main.exe -m .\models\7B\ggml-model-q4_0.bin --color -f .\prompts\chat-with-bob.txt -i --repeat_last_n 2048 --repeat_penalty 1.178 --temp 0.7 --top_k 40 --top_p 0 --color -r "User:" --verbose-prompt

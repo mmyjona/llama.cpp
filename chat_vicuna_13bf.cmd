@@ -1,0 +1,1 @@
+.\build-win-msvc\bin\main.exe -m .\models\Vicuna\13BFREE\vicuna-13b-free-v230502-q5_0.bin --color -f .\prompts\vicuna.txt -ins --repeat_last_n 256 --repeat_penalty 1.178 --temp 0.7 -c 2048 --reverse-prompt "### Assistant" --reverse-prompt "---"

@@ -1,0 +1,1 @@
+.\build-win-msvc\bin\main.exe -m .\models\GPT4-x-Alpaca\gpt4-x-alpaca-13b-native-ggml-model-q4_0.bin --color -f .\prompts\alpaca.txt -ins --repeat_last_n 256 --repeat_penalty 1.178 --temp 0.7 -c 2048

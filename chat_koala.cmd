@@ -1,0 +1,1 @@
+.\build-win-msvc\bin\main.exe -m .\models\koala\7B\koala-7b.ggml.unquantized.pr613_q4.bin --color -f .\prompts\alpaca.txt -ins --repeat_last_n 256 --repeat_penalty 1.178 --temp 0.7 -c 2048
