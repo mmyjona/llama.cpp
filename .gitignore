@@ -24,6 +24,7 @@ build-sanitize-thread/
 
 models/*
 models_hf/*
+*.bin
 
 /main
 /quantize
@@ -45,5 +46,7 @@ zig-out/
 zig-cache/
 
 ppl-*.txt
+qnt-*.txt
+perf-*.txt
 
 examples/jeopardy/results.txt
